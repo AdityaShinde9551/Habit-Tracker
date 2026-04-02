@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   const fetchHabits = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/habits', { headers })
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/habits`, { headers })
       setHabits(res.data)
     } catch {
       setError('Failed to load habits')
@@ -34,7 +34,7 @@ export default function Dashboard() {
     e.preventDefault()
     if (!name.trim()) return
     try {
-      await axios.post('http://localhost:5000/api/habits', { name, frequency }, { headers })
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/habits`, { name, frequency }, { headers })
       setName('')
       fetchHabits()
     } catch {
@@ -43,12 +43,12 @@ export default function Dashboard() {
   }
 
   const toggleHabit = async (id, completed) => {
-    await axios.put(`http://localhost:5000/api/habits/${id}`, { completed: !completed }, { headers })
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/habits`, { completed: !completed }, { headers })
     fetchHabits()
   }
 
   const deleteHabit = async (id) => {
-    await axios.delete(`http://localhost:5000/api/habits/${id}`, { headers })
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/habits`, { headers })
     fetchHabits()
   }
 
