@@ -7,4 +7,4 @@ const habitSchema = new mongoose.Schema({
   completed: { type: Boolean, default: false }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Habit', habitSchema);
+module.exports = mongoose.model('Habit', habitSchema);  
