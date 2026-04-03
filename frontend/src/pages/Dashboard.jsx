@@ -43,12 +43,12 @@ export default function Dashboard() {
   }
 
   const toggleHabit = async (id, completed) => {
-    await axios.put(`${import.meta.env.VITE_API_URL}/api/habits`, { completed: !completed }, { headers })
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/habits/${id}`, { completed: !completed }, { headers })
     fetchHabits()
   }
 
   const deleteHabit = async (id) => {
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/habits`, { headers })
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/habits/${id}`, { headers })
     fetchHabits()
   }
 
