@@ -8,8 +8,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://habit-tracker-theta-olive.vercel.app',
-  credentials: true
+  origin: '*',
+  credentials: false
 }))
 app.use(express.json());
 
